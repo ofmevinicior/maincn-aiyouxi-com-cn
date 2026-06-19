@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ofmevinicior.github.io/maincn-aiyouxi-com-cn/sitemap.xml
