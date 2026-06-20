@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐竞体育 | 活力 · 竞技 · 生活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f7f9fc;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* 深色 Hero 区 — 用纹理与渐变增加层次 */
+        .hero {
+            background: linear-gradient(135deg, #0b1424 0%, #192a45 50%, #0c1a2f 100%);
+            color: #e9edf2;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(circle at 30% 40%, rgba(255, 160, 60, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+            color: #fbbf24;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 560px;
+            margin: 1.2rem auto 2rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #fcd34d;
+            background: rgba(251, 191, 36, 0.06);
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 1.6rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* 优势区 — 卡片网格 */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .advantage-card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.8rem 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.04);
+            transition: 0.2s ease;
+            border: 1px solid #eef2f6;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+            border-color: #d0d9e6;
+        }
+
+        .advantage-card h3 {
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #1e3a5f;
+        }
+
+        .advantage-card p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* 说明区 — 左右图文布局 */
+        .feature-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin: 2.5rem 0 3.5rem;
+            align-items: center;
+        }
+
+        .feature-text {
+            flex: 1 1 280px;
+        }
+
+        .feature-text h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #0b1f35;
+            margin-bottom: 1rem;
+        }
+
+        .feature-text p {
+            margin-bottom: 1.2rem;
+            color: #334155;
+        }
+
+        .feature-visual {
+            flex: 1 1 260px;
+            background: #e6edf5;
+            border-radius: 32px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2a405c;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            background-image: repeating-linear-gradient(45deg, #dce4ef 0px, #dce4ef 2px, transparent 2px, transparent 8px);
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.8rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #e9edf2;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #0f2b44;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-left: 0.2rem;
+        }
+
+        .faq-more {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #b45309;
+            text-decoration: none;
+            transition: 0.15s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #92400e;
+            text-decoration: underline;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #dee5ed;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2.5rem;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .footer-links a {
+            color: #1e3a5f;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: #b45309;
+        }
+
+        .copy-note {
+            margin-top: 1rem;
+            color: #7a8a9b;
+            font-size: 0.8rem;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .content {
+                padding: 2rem 1rem 2rem;
+            }
+            .advantages-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero 区 -->
+    <section class="hero">
+        <div class="hero-inner">
+            <span class="tagline">⚡ 竞技 · 社群 · 日常</span>
+            <h1>与 <span>乐竞体育</span> 一起<br>感受运动的另一种节奏</h1>
+            <p>不只是赛事与比分，更是一种陪伴生活的方式。放松心情，找到属于你的运动角落。</p>
+        </div>
+    </section>
+
+    <!-- 正文内容 -->
+    <div class="content">
+
+        <!-- 优势区 -->
+        <h2 class="section-title">为什么越来越多的人选择这里</h2>
+        <div class="advantages-grid">
+            <div class="advantage-card">
+                <h3>🌱 低门槛融入</h3>
+                <p>不论新手还是资深爱好者，都能找到适合自己的信息与氛围。</p>
+            </div>
+            <div class="advantage-card">
+                <h3>📊 多元视角</h3>
+                <p>从赛事解读到运动文化，提供多角度的内容，让视野更开阔。</p>
+            </div>
+            <div class="advantage-card">
+                <h3>🧘 平衡生活</h3>
+                <p>竞技的激情与日常的松弛并不矛盾，在这里学会享受过程。</p>
+            </div>
+            <div class="advantage-card">
+                <h3>🤝 同类相聚</h3>
+                <p>轻松的氛围让有共同兴趣的人自然走到一起，分享观点。</p>
+            </div>
+        </div>
+
+        <!-- 说明区：用场景化文字表达主题 -->
+        <div class="feature-block">
+            <div class="feature-text">
+                <h2>从一场比赛到一种习惯</h2>
+                <p>我们相信，竞技不只是输赢。它可以是周末早晨的慢跑陪伴，也可以是深夜与朋友讨论战术的谈资。<a href="https://portals-lejing.com">乐竞体育</a>所传递的，正是这种将运动融入日常的态度——不必很专业，但可以很有趣。</p>
+                <p>无论是团队项目还是个人挑战，运动背后总有故事和温度。这里不制造焦虑，只提供一片可以安静关注、自由交流的空间。</p>
+            </div>
+            <div class="feature-visual">
+                🏃 运动 · 观察 · 分享
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h2 class="section-title" style="border-bottom: none; margin-bottom: 1rem;">常见问题 · 快速了解</h2>
+            <div class="faq-item">
+                <strong>这里的资讯更新频率如何？</strong>
+                <p>日常保持稳定更新，重点赛事前后会有更丰富的内容整理，方便你快速获取信息。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否需要注册才能浏览？</strong>
+                <p>大部分内容可以直接浏览，部分互动功能可能需要简单注册。整个过程很轻量。</p>
+            </div>
+            <div class="faq-item">
+                <strong>内容偏向哪些运动类型？</strong>
+                <p>覆盖主流团队项目与个人项目，同时也关注运动文化、训练常识等衍生话题。</p>
+            </div>
+            <div class="faq-more">
+                <span>更多疑问？欢迎在站内找到答案。</span>
+            </div>
+        </div>
+
+        <!-- 底部链接区（包含显性的乐竞体育链接） -->
+        <div class="footer-links">
+            <span>🔗 相关资源：</span>
+            <a href="https://portals-lejing.com">乐竞体育</a>
+            <span>·</span>
+            <a href="#">运动百科</a>
+            <span>·</span>
+            <a href="#">社群动态</a>
+            <span>·</span>
+            <a href="#">使用指南</a>
+        </div>
+
+        <div class="copy-note">
+            — 这里不谈夸张口号，只有对运动与生活的一点认真与放松。
+        </div>
+    </div>
+
+</body>
+</html>
